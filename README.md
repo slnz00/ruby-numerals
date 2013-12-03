@@ -7,7 +7,7 @@ Fork this project with the original description and write your own code.
 Commit the important milestones and not just the final result!
 
 
-Excercise descrption
+Excercise description
 --------------------
 
 Create a Rails project, with a simple controller logic.
