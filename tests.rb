@@ -52,4 +52,13 @@ class TestEnglishWordsFromNumbers < Minitest::Test
     )
   end
 
+  def test_type_check
+    assert_raises(TypeError) {
+      @numerals.convert_to_english_words('a')
+    }
+    assert_raises(TypeError) {
+      @numerals.convert_to_english_words(1.0)
+    }
+  end
+
 end
