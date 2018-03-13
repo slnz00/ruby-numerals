@@ -32,5 +32,19 @@ class TestEnglishWordsFromNumbers < Minitest::Test
     )
   end
 
+  def test_large_numbers
+    assert_equal(
+      'one million nine hundred ninety-nine thousand nine hundred ninety-nine',
+      @numerals.convert_to_english_words(1_999_999)
+    )
+    assert_equal(
+      'one billion',
+      @numerals.convert_to_english_words(1_000_000_000)
+    )
+    assert_equal(
+      'one trillion',
+      @numerals.convert_to_english_words(1_000_000_000_000)
+    )
+  end
 
 end
