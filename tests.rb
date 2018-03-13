@@ -12,9 +12,10 @@ class TestEnglishWordsFromNumbers < Minitest::Test
   def test_examples
     assert_equal(
       'seven',
-      @numerals.convert_to_english_words(7))
+      @numerals.convert_to_english_words(7)
+    )
     assert_equal(
-      'Answer to the Ultimate Question of Life, the Universe, and Everything',
+      'forty-two',
       @numerals.convert_to_english_words(42)
     )
     assert_equal(
@@ -22,7 +23,7 @@ class TestEnglishWordsFromNumbers < Minitest::Test
       @numerals.convert_to_english_words(2001)
     )
     assert_equal(
-      'nineteen hundred and ninety-nine',
+      'one thousand nine hundred ninety-nine',
       @numerals.convert_to_english_words(1999)
     )
     assert_equal(
@@ -30,5 +31,6 @@ class TestEnglishWordsFromNumbers < Minitest::Test
       @numerals.convert_to_english_words(17_999)
     )
   end
+
 
 end
