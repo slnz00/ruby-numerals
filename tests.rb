@@ -9,6 +9,11 @@ class TestEnglishWordsFromNumbers < Minitest::Test
 
   def teardown; end
 
+  def test_failure
+    result = @numerals.convert_to_english_words(1)
+    assert(result != nil, 'Method does not return anything')
+  end
+
   def test_examples
     assert_equal(
       'seven',
