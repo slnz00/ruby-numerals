@@ -11,7 +11,7 @@ class TestEnglishWordsFromNumbers < Minitest::Test
 
   def test_failure
     result = @numerals.convert_to_english_words(1)
-    assert(result != nil, 'Method does not return anything')
+    assert(!result.nil?, 'Method does not return anything')
   end
 
   def test_examples
