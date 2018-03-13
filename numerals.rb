@@ -33,6 +33,9 @@ class Numerals
     1_000_000_000_000 => 'billion'
   }.freeze
 
-  def convert_to_english_words(number); end
+  def convert_to_english_words(number)
+    raise(TypeError, 'input number must be an integer') unless number.is_a? Integer
+    raise('input number must be zero or positive') unless number >= 0
+  end
 
 end
