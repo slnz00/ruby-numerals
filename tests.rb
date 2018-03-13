@@ -61,4 +61,10 @@ class TestEnglishWordsFromNumbers < Minitest::Test
     }
   end
 
+  def test_negative_value_check
+    assert_raises(RuntimeError) {
+      @numerals.convert_to_english_words(-1)
+    }
+  end
+
 end
