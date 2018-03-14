@@ -34,13 +34,36 @@ class Numerals
     0 => 'zero'
   }.freeze
 
-  def self.convert_to_english_words(number)
+  private_class_method
+  def converter(number)
+    return ENGLISH_WORDS[number] if number < 20
+
+    if number < 100
+      mod = number % 10
+      suffix = mod.zero? ? '' : "-#{ENGLISH_WORDS[mod]}"
+      ENGLISH_WORDS[number - mod] + suffix
+    else
+      ENGLISH_WORDS.each do |value, name|
+        ratio = number / value
+        mod = number % value
+        return converter(ratio) + " #{name}" if ratio >= 1 && mod.zero?
+        return converter(ratio) + " #{name} " + converter(mod) if ratio >= 1
+      end
+    end
+  end
+
+  def convert_to_english_words(number)
     raise(TypeError, 'input number must be an integer') unless number.is_a? Integer
     raise('input number must be zero or positive') unless number >= 0
-    if number.zero?
-      return ENGLISH_WORDS[number]
-    else
-      return
+    return ENGLISH_WORDS[number] if number.zero?
+
+    mod = number % 100
+    suffix = ''
+    if number > 100 && !mod.zero?
+      number -= mod
+      suffix += ' and ' + converter(mod)
     end
+
+    converter(number) + suffix
   end
 end
