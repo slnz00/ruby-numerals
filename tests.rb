@@ -16,8 +16,8 @@ class TestEnglishWordsFromNumbers < Minitest::Test
 
   def test_examples
     assert_equal(
-        'zero',
-        @numerals.convert_to_english_words(0)
+      'zero',
+      @numerals.convert_to_english_words(0)
     )
     assert_equal(
       'seven',
