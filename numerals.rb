@@ -1,6 +1,7 @@
 class Numerals
   ENGLISH_WORDS = {
-    1_000_000_000_000 => 'billion',
+    1_000_000_000_000 => 'trillion',
+    1_000_000_000 => 'billion',
     1_000_000 => 'million',
     1000 => 'thousand',
     100 => 'hundred',
