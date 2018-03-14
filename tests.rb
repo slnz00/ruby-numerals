@@ -32,7 +32,7 @@ class TestEnglishWordsFromNumbers < Minitest::Test
       @numerals.convert_to_english_words(2001)
     )
     assert_equal(
-      'one thousand nine hundred ninety-nine',
+      'one thousand nine hundred and ninety-nine',
       @numerals.convert_to_english_words(1999)
     )
     assert_equal(
@@ -43,7 +43,7 @@ class TestEnglishWordsFromNumbers < Minitest::Test
 
   def test_large_numbers
     assert_equal(
-      'one million nine hundred ninety-nine thousand nine hundred ninety-nine',
+      'one million nine hundred ninety-nine thousand nine hundred and ninety-nine',
       @numerals.convert_to_english_words(1_999_999)
     )
     assert_equal(
