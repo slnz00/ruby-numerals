@@ -34,8 +34,10 @@ class Numerals
     1 => 'one',
     0 => 'zero'
   }.freeze
+  private_constant :ENGLISH_WORDS
 
-  private_class_method
+  private
+
   def converter(number)
     return ENGLISH_WORDS[number] if number < 20
 
@@ -52,6 +54,8 @@ class Numerals
       end
     end
   end
+
+  public
 
   def convert_to_english_words(number)
     raise(TypeError, 'input number must be an integer') unless number.is_a? Integer
