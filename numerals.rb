@@ -1,5 +1,5 @@
 class Numerals
-  ENGLISH_WORDS = {
+  NUMBER_NAMES = {
     1_000_000_000_000 => 'trillion',
     1_000_000_000 => 'billion',
     1_000_000 => 'million',
@@ -34,19 +34,19 @@ class Numerals
     1 => 'one',
     0 => 'zero'
   }.freeze
-  private_constant :ENGLISH_WORDS
+  private_constant :NUMBER_NAMES
 
   private
 
   def converter(number)
-    return ENGLISH_WORDS[number] if number < 20
+    return NUMBER_NAMES[number] if number < 20
 
     if number < 100
       mod = number % 10
-      suffix = mod.zero? ? '' : "-#{ENGLISH_WORDS[mod]}"
-      ENGLISH_WORDS[number - mod] + suffix
+      suffix = mod.zero? ? '' : "-#{NUMBER_NAMES[mod]}"
+      NUMBER_NAMES[number - mod] + suffix
     else
-      ENGLISH_WORDS.each do |value, name|
+      NUMBER_NAMES.each do |value, name|
         ratio = number / value
         mod = number % value
         return converter(ratio) + " #{name}" if ratio >= 1 && mod.zero?
@@ -60,7 +60,7 @@ class Numerals
   def convert_to_english_words(number)
     raise(TypeError, 'input number must be an integer') unless number.is_a? Integer
     raise('input number must be zero or positive') unless number >= 0
-    return ENGLISH_WORDS[number] if number.zero?
+    return NUMBER_NAMES[number] if number.zero?
 
     mod = number % 100
     suffix = ''
